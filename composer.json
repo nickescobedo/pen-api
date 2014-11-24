@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-0": {
-            "nickescobedo\\pen-api\\": ["src/", "tests/"]
+            "nickescobedo\\pen-api\\": ["src/"]
         }
     },
     "autoload-dev": {
