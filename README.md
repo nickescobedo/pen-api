@@ -1,4 +1,4 @@
 PEN
 ===
 
-PHP Echo Nest API wrapper.
+Unoffical PHP Echo Nest (PEN) API wrapper.
