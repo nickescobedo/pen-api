@@ -20,13 +20,13 @@
         "phpunit/phpunit": "~3.7"
     },
     "autoload": {
-        "psr-0": {
-            "nickescobedo\\pen-api\\": ["src/"]
+        "psr-4": {
+            "nickescobedo\\penapi\\": ["src/"]
         }
     },
     "autoload-dev": {
-        "psr-0": {
-            "nickescobedo\\pen-api\\": "tests/"
+        "psr-4": {
+            "nickescobedo\\penapi\\": "tests/"
         }
     }
 }
