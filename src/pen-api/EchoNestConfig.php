@@ -2,7 +2,6 @@
 
 namespace nickescobedo\penapi;
 
-
 class EchoNestConfig {
     private $apiKey;
     private $returnFormat;
