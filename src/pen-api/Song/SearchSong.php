@@ -4,6 +4,6 @@
 namespace nickescobedo\penapi\song;
 
 
-class SearchSong {
+class SearchSong extends SongApi{
     protected $methodSlug = 'search';
 } 
