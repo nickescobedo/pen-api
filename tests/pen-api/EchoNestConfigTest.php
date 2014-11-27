@@ -3,7 +3,7 @@
 namespace nickescobedo\penapi;
 
 
-class EchoNestConfigTest extends \PHPUnit_Framework_TestCase{
+class EchoNestConfigTest extends TestCase{
     public function testReturnFormat(){
         $echoNestConfig = new EchoNestConfig();
         $echoNestConfig->setReturnFormat('json');

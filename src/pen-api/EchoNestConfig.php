@@ -5,6 +5,7 @@ namespace nickescobedo\penapi;
 class EchoNestConfig {
     private $apiKey;
     private $returnFormat;
+    private $baseUrl;
 
     /**
      * @return mixed
@@ -36,5 +37,21 @@ class EchoNestConfig {
     public function setReturnFormat($returnFormat)
     {
         $this->returnFormat = $returnFormat;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBaseUrl()
+    {
+        return $this->baseUrl;
+    }
+
+    /**
+     * @param mixed $baseUrl
+     */
+    public function setBaseUrl($baseUrl)
+    {
+        $this->baseUrl = $baseUrl;
     }
 } 
