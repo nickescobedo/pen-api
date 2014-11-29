@@ -5,10 +5,9 @@ namespace nickescobedo\penapi;
 
 
 use GuzzleHttp\Client;
-use nickescobedo\penapi\request\EchoNestRequest;
 
 class EchoNestApi {
-    private $baseUrl;
+    private $baseUrl = 'http://developer.echonest.com/api/v4';
     protected $apiSlug;
     protected $methodSlug;
     private $client;
@@ -22,6 +21,6 @@ class EchoNestApi {
     public function buildUrl(array $parameters)
     {
         $urlParameters = http_build_query($parameters);
-        return $this->baseUrl . '/' . $this->apiSlug . '?' . $urlParameters;
+        return $this->baseUrl . '/' . $this->apiSlug . '/' . $this->methodSlug . '?' . $urlParameters;
     }
 }
