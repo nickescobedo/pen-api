@@ -11,6 +11,7 @@ class EchoNestRequest
 {
     private $echoNestConfig;
     private $client;
+    private $baseUrl;
 
     public function __construct(EchoNestConfig $echoNestConfig, Client $client)
     {
@@ -20,9 +21,8 @@ class EchoNestRequest
 
     public function buildUrl(array $parameters)
     {
-        $baseUrl = $this->echoNestConfig->getBaseUrl();
         $urlParameters = http_build_query($parameters);
-        return $baseUrl . '?' . $urlParameters;
+        return $this->baseUrl . '?' . $urlParameters;
     }
 
     public function call()
