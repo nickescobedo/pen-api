@@ -14,7 +14,6 @@ class EchoNestApi {
 
     public function call(Client $client, $parameters){
         $this->client = $client;
-
         $this->client->get($this->buildUrl($parameters));
     }
 
