@@ -4,7 +4,7 @@
 namespace nickescobedo\penapi\song;
 
 
-class profile extends SongApi{
+class Profile extends SongApi{
     protected $methodSlug = 'profile';
 
 } 
