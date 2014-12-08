@@ -4,7 +4,7 @@ namespace nickescobedo\penapi;
 
 class EchoNestConfig {
     private $apiKey;
-    private $returnFormat;
+    private $returnFormat = 'json';
     private $baseUrl;
 
     /**
