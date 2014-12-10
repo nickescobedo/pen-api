@@ -2,9 +2,7 @@
 
 namespace nickescobedo\penapi;
 
-
 use GuzzleHttp\Client;
-use GuzzleHttp\Stream\Stream;
 
 class EchoNestApi {
     private $baseUrl = 'http://developer.echonest.com/api/v4';
@@ -20,7 +18,7 @@ class EchoNestApi {
     public function call($parameters){
         $client = new Client();
         $response =  $client->get($this->buildUrl($parameters));
-        return new EchoNestApiResponse($response->getBody());
+        return new EchoNestApiResponse($response);
     }
 
     public function buildUrl(array $parameters)
