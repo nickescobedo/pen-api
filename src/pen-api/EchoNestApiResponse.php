@@ -15,10 +15,10 @@ class EchoNestApiResponse {
     public function __construct($response)
     {
         $this->response = $response;
-        $this->parseBody();
+        $this->parseResponse();
     }
 
-    public function parseBody()
+    public function parseResponse()
     {
         if($this->isJson()){
             $this->parseJsonResponse();
@@ -26,6 +26,11 @@ class EchoNestApiResponse {
         else if($this->isXml()){
             $this->parseXmlResponse();
         }
+        else{
+            throw new \Exception;
+        }
+
+        $this->parseResponseBodyForData();
     }
 
     public function parseJsonResponse()
@@ -71,7 +76,7 @@ class EchoNestApiResponse {
         return true;
     }
 
-    function isJson()
+    public function isJson()
     {
         try {
             $this->response->json();
@@ -82,4 +87,35 @@ class EchoNestApiResponse {
         return true;
     }
 
+    public function parseResponseBodyForData()
+    {
+        foreach($this->getBody() as $key => $value){
+            if($key != 'status'){
+                $this->data = $value;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    public function getHeaders()
+    {
+        return $this->response->getHeaders();
+    }
+
+    public function getRateLimit()
+    {
+        return $this->response->getHeaders()['X-Ratelimit-Limit'];
+    }
+
+    public function getRateLimitUsed()
+    {
+        return $this->response->getHeaders()['X-Ratelimit-Used'];
+    }
 } 
