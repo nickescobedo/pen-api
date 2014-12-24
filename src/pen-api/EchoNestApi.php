@@ -8,6 +8,7 @@ class EchoNestApi {
     private $baseUrl = 'http://developer.echonest.com/api/v4';
     protected $apiSlug;
     protected $methodSlug;
+    protected $responseKey;
     private $client;
     private $echoNestConfig;
 
@@ -17,7 +18,7 @@ class EchoNestApi {
 
     public function call($parameters){
         $client = new Client();
-        $response =  $client->get($this->buildUrl($parameters));
+        $response =  $client->get($this->buildUrl($parameters), array('exceptions' => false));
         return new EchoNestApiResponse($response);
     }
 
