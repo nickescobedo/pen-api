@@ -27,7 +27,7 @@ class EchoNestResponse implements ResponseInterface{
 
     public function getData()
     {
-        return $this->data;
+        return $this->body;
     }
 
     public function isSuccessful()
