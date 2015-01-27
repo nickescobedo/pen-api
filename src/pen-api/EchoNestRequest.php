@@ -38,13 +38,13 @@ class EchoNestRequest implements RequestInterface {
         return new EchoNestResponse($this, $this->response);
     }
 
-    public function buildUrl(array $parameters)
+    private function buildUrl(array $parameters)
     {
         $urlParameters = http_build_query($parameters);
         return $this->baseUrl . '/' . $this->getApiRoute() . '/' . $this->getMethodRoute() . '?' . $urlParameters;
     }
 
-    public function buildQueryParameters($queryParameters)
+    private function buildQueryParameters($queryParameters)
     {
 
         $stuff = $queryParameters['queryParameters'];
