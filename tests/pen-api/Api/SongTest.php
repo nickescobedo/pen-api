@@ -1,13 +1,14 @@
 <?php
 
-namespace nickescobedo\penapi;
+
+namespace nickescobedo\penapi\api;
+
+use nickescobedo\penapi\EchoNestConfig;
 
 
-use GuzzleHttp\Client;
-use nickescobedo\penapi\api\SongApi;
+class SongTest {
 
-class EchoNestApiTest extends TestCase{
-    public function testBuildUrl()
+    public function testBuildSearchSongUrl()
     {
         $config = new EchoNestConfig();
         $config->setApiKey('test_api_key');
