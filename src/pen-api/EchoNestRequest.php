@@ -32,10 +32,33 @@ class EchoNestRequest implements RequestInterface {
 
     public function send(array $queryParameters)
     {
-        $this->setApiRoute($queryParameters['apiRoute']);
         $this->setMethodRoute($queryParameters['methodRoute']);
         $this->response = $this->httpClient->get($this->buildUrl($this->buildQueryParameters($queryParameters)));
         return new EchoNestResponse($this, $this->response);
+    }
+
+    public function artist()
+    {
+        $this->setApiRoute('artist');
+        return $this;
+    }
+
+    public function genre()
+    {
+        $this->setApiRoute('genre');
+        return $this;
+    }
+
+    public function song()
+    {
+        $this->setApiRoute('song');
+        return $this;
+    }
+
+    public function track()
+    {
+        $this->setApiRoute('track');
+        return $this;
     }
 
     private function buildUrl(array $parameters)
