@@ -14,7 +14,7 @@ class EchoNestResponse implements ResponseInterface{
         $this->decodeBody();
     }
 
-    public function decodeBody()
+    private function decodeBody()
     {
         if($this->isJson()){
             $this->parseJsonResponse();
