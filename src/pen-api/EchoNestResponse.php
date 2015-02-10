@@ -2,7 +2,7 @@
 
 namespace nickescobedo\penapi;
 
-class EchoNestResponse implements ResponseInterface{
+class EchoNestResponse {
     protected $request;
     protected $response;
     protected $body;
