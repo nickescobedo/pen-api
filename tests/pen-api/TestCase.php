@@ -3,12 +3,12 @@
 namespace nickescobedo\penapi;
 
 
+use GuzzleHttp\Client;
+
 class TestCase extends \PHPUnit_Framework_TestCase {
-    protected $echoNestConfig;
+    protected $echoNest;
 
     protected function setUp(){
-        $this->echoNestConfig = new EchoNestConfig();
-        $this->echoNestConfig->setBaseUrl('http://developer.echonest.com/api/v4');
-        $this->echoNestConfig->setReturnFormat('json');
+        $this->echoNest = new EchoNestRequest(new Client(), '');
     }
 } 
