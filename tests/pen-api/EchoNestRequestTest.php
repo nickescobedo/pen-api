@@ -2,6 +2,8 @@
 
 namespace nickescobedo\penapi;
 
+use GuzzleHttp\Message\Response;
+use GuzzleHttp\Stream\Stream;
 use \Mockery as m;
 
 use GuzzleHttp\Client;
@@ -45,7 +47,13 @@ class EchoNestRequestTest extends TestCase {
         $this->echoNest->song();
         $this->echoNest->setMethodRoute('search');
 
-        $songData = json_encode('{
+        $response = new Response(200);
+        $responseHeaders = [
+            'X-RateLimit-Limit' => 20,
+            'X-RateLimit-Remaining' => 10,
+            'X-RateLimit-Used' => 10,
+        ];
+        $responseBody = '{
             "response": {
                 "status": {
                     "code": 0,
@@ -61,10 +69,12 @@ class EchoNestRequestTest extends TestCase {
                     }
                 ]
             }
-        }');
+        }';
+        $response->setHeaders($responseHeaders);
+        $response->setBody(Stream::factory($responseBody));
 
         $httpClient = m::mock('\GuzzleHttp\Client');
-        $httpClient->shouldReceive('get')->once()->andReturn($songData);
+        $httpClient->shouldReceive('get')->once()->andReturn($response);
         $apiKey = 'test_api_key';
 
         $echoNest = new EchoNestRequest($httpClient, $apiKey);
@@ -77,10 +87,6 @@ class EchoNestRequestTest extends TestCase {
 
         $this->assertInstanceOf('\nickescobedo\penapi\EchoNestResponse', $response);
 
-
-
-        $url = $this->echoNest->buildUrl(['title' => 'Wish You Were Here']);
-        dd($url);
     }
 
 } 
