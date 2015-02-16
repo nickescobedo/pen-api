@@ -8,7 +8,13 @@ use \Mockery as m;
 
 use GuzzleHttp\Client;
 
-class EchoNestRequestTest extends TestCase {
+class EchoNestRequestTest extends \PHPUnit_Framework_TestCase {
+    protected $echoNest;
+
+    protected function setUp(){
+    $this->echoNest = new EchoNestRequest(new Client(), '');
+}
+
     /**
      * @expectedException \Exception
      */
