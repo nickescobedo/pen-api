@@ -1,6 +1,6 @@
 <?php
 
-namespace nickescobedo\penapi;
+namespace NickEscobedo\PenApi;
 
 use GuzzleHttp\Message\Response;
 use GuzzleHttp\Stream\Stream;
@@ -85,7 +85,7 @@ class EchoNestRequestTest extends TestCase {
             ],
         ]);
 
-        $this->assertInstanceOf('\nickescobedo\penapi\EchoNestResponse', $response);
+        $this->assertInstanceOf('\NickEscobedo\PenApi\EchoNestResponse', $response);
 
     }
 

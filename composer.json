@@ -22,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "nickescobedo\\penapi\\": ["src/", "tests/"]
+            "NickEscobedo\\PenApi\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "nickescobedo\\penapi\\": "tests/"
+            "NickEscobedo\\PenApi\\": "tests/"
         }
     }
 }

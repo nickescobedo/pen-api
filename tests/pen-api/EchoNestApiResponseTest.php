@@ -1,6 +1,6 @@
 <?php
 
-namespace nickescobedo\penapi;
+namespace NickEscobedo\PenApi;
 
 
 class EchoNestApiResponseTest {
